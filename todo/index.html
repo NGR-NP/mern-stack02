@@ -1,0 +1,29 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Todo's</title>
+</head>
+
+<body>
+    <section class="sec">
+        <h1 class="title">Todo App</h1>
+        <form class="todoForm">
+            <input type="text" class="formInput" id="newTask" />
+            <button type="button" class="addBtn" id="addTask">Add Task</button>
+        </form>
+        <fieldset class="lists">
+            <legend>
+                My Todo List
+            </legend>
+            <div id="empty">No task on the list</div>
+            <ul id="todoList"></ul>
+        </fieldset>
+    </section>
+    <script src="index.js"></script>
+</body>
+
+</html>
