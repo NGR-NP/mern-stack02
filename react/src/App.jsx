@@ -1,39 +1,50 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 
 function App() {
   const [todo, setTodo] = useState("")
-  const [data, setData] = useState([])
+  const [lists, setLists] = useState([])
 
   const handleChange = (e) => {
-    setData(e.target.value)
+    setTodo(e.target.value)
   }
   const handleSubmit = (e) => {
-
+    setLists(prev => [...prev, todo])
     setTodo('')
   }
-  useEffect(() => {
-    if (data === 0) {
-      empty.style.display = 'block'
-    } else {
-
-    }
-  }, [data])
+  const handleRemove = (value) => {
+    const filterTodo = lists.filter((data) => data !== value)
+    setLists(filterTodo)
+  }
 
   return (
-    <section class="sec">
-      <h1 class="title">Todo App</h1>
-      <form class="todoForm">
-        <input value={todo} onChange={handleChange} type="text" class="formInput" id="newTask" />
-        <button onClick={handleSubmit} type="button" class="addBtn" id="addTask">Add Task</button>
+    <section className="sec">
+      <h1 className="title">Todo App</h1>
+      <form className="todoForm">
+        <input value={todo} onChange={handleChange} type="text" className="formInput" id="newTask" />
+        <button onClick={handleSubmit} type="button" className="addBtn" id="addTask">Add Task</button>
       </form>
-      <fieldset class="lists">
+      <fieldset className="lists">
         <legend>
           My Todo List
         </legend>
-        <div id="empty">No task on the list</div>
-        <ul id="todoList"></ul>
+        {
+          lists.length == 0 &&
+          <div id="empty">No task on the list</div>
+        }
+
+        <ul id="todoList">
+          {
+            lists.map((data, idx) => {
+              return (
+                <li key={idx}>
+                  <div>⏺ {data}</div>
+                  <div onClick={() => handleRemove(data)} className="remove">X</div>
+                </li>
+              )
+            })
+          }
+        </ul>
       </fieldset>
     </section>
   )
