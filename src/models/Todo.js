@@ -6,8 +6,8 @@ const TODO = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ["Pending", "Completed"],
-        default: "Pending",
+        enum: ["pending", "completed"],
+        default: "pending",
     },
 }, { timestamps: true })
 
