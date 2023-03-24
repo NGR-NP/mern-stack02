@@ -62,10 +62,11 @@ const updateTodo = async (req, res, next) => {
         );
         if (updatedTodo.status === "completed") {
             await Todo.findByIdAndDelete({ _id: id })
-            res.json({ message: "todo deleted!" })
+            res.json({ message: "todo completed!" })
         } else {
             res.json(updatedTodo)
         }
+
     } catch (err) {
         next(err)
     }
