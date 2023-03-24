@@ -1,0 +1,119 @@
+body {
+  background: #48487a;
+}
+
+
+.title {
+  color: #d7d7ff;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.todoForm {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.formInput {
+  max-width: 350px;
+  width: 100%;
+  padding: 0.7rem 1rem 0.7rem 2rem;
+  border: 1px solid darkblue;
+  border-radius: 33px 7px 6px 7px;
+  outline: none;
+  font-size: 1.9rem;
+  height: 36px;
+  font-family: fangsong
+}
+
+.addBtn {
+  padding: 19px 1rem;
+  border: 1px solid darkblue;
+  border-radius: 8px 12px 20px 8px;
+  outline: none;
+  font-size: 1rem;
+  font-family: fantasy;
+  letter-spacing: 3px;
+  cursor: pointer;
+  height: 60px;
+  background: #fcdbff;
+}
+
+.lists {
+  max-width: 600px;
+  margin: 3rem auto;
+  color: white;
+  max-height: 60vh;
+  overflow: hidden;
+  overflow-y: inherit;
+  position: relative;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  background-color: white;
+  margin: 20px auto;
+  padding: 5px 15px;
+}
+
+.listCont {
+  display: flex;
+  align-items: center;
+  background: #967cb64f;
+  margin: 10px 0;
+  padding: 0 15px;
+  border-radius: 6px;
+  justify-content: space-between;
+
+}
+
+.list {
+  color: white;
+  padding: 0.5rem 4rem 0.5rem 0.1rem;
+  width: 100%;
+
+}
+
+.listNum {
+  background-color: white;
+  color: black;
+  padding: 3px 5px;
+  border-radius: 30%;
+  margin-right: 7px;
+}
+
+.todoInput {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: white;
+  width: 90%;
+}
+
+.icon {
+  display: flex;
+  gap: 1rem;
+  margin: 9px;
+}
+
+.check {
+  color: rgb(79, 226, 79);
+  background-color: white;
+  border-radius: 50% 50% 50% 10%;
+  cursor: pointer;
+  padding: 1px;
+}
+
+.delete {
+  color: red;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.edit{
+  cursor: pointer;
+}
