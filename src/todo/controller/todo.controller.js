@@ -7,7 +7,7 @@ const createTodo = async (req, res, next) => {
             res.status(400).json({ message: 'Title is required' });
             return;
         }
-        const foundTodo = await Todo.findOne({title})
+        const foundTodo = await Todo.findOne({ title })
         if (foundTodo) {
             res.status(401).json({ message: 'todo is already in pending' })
             return;
@@ -26,7 +26,12 @@ const createTodo = async (req, res, next) => {
 const getTodos = async (_req, res, next) => {
     try {
         const todos = await Todo.find()
-        res.json(todos)
+        if (todos) {
+            res.json(todos)
+
+        } else {
+            res.json({ message: "todo not found" })
+        }
     } catch (err) {
         next(err)
     }
@@ -36,7 +41,11 @@ const getTodo = async (req, res, next) => {
     try {
         const { id } = req.params
         const todo = await Todo.findById({ _id: id })
-        res.json(todo)
+        if (todo) {
+            res.json(todo)
+        } else {
+            res.json({ message: "todo not found" })
+        }
     } catch (err) {
         next(err)
     }
@@ -51,8 +60,7 @@ const updateTodo = async (req, res, next) => {
             { title, status },
             { new: true, select: '_id title status' }
         );
-        const checkStatusOfTodo = await Todo.findOne({ _id: id })
-        if (checkStatusOfTodo.status === "completed") {
+        if (updatedTodo.status === "completed") {
             await Todo.findByIdAndDelete({ _id: id })
             res.json({ message: "todo deleted!" })
         } else {
