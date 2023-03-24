@@ -66,7 +66,6 @@ const updateTodo = async (req, res, next) => {
         } else {
             res.json(updatedTodo)
         }
-
     } catch (err) {
         next(err)
     }
@@ -81,8 +80,7 @@ const deleteTodo = async (req, res, next) => {
         next(err)
     }
 }
-module.exports =
-{
+module.exports = {
     createTodo,
     getTodos,
     getTodo,
