@@ -50,7 +50,7 @@ const getUsers = async (req, res, next) => {
 const getUser = async (req, res, next) => {
     const id = req.id
     try {
-        const user = await User.findById(id).select("-password");
+        const user = await User.findById({_id: id}).select("-password");
         if (!user) {
             return next(ERROR(401, "User not found."));
 
@@ -61,12 +61,12 @@ const getUser = async (req, res, next) => {
         });
     } catch (err) {
         next(err);
-    }
+        }
 };
 const deleteUser = async (req, res, next) => {
     const id = req.id;
     try {
-        const deletedUser = await User.findByIdAndDelete(id);
+        const deletedUser = await User.findByIdAndDelete({ _id: id });
         if (!deletedUser) {
             return next(ERROR(400, "User not Found"));
         }
