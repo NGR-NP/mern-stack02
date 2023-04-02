@@ -24,19 +24,13 @@ const createProduct = async (req, res, next) => {
 
 
 const getProducts = async (req, res, next) => {
-    const { categoryQuery, limit } = req.query;
+    const { limit } = req.query;
 
     try {
         let products;
 
         if (limit) {
             products = await Products.find().sort({ createdAt: -1 }).limit(limit);
-        } else if (categoryQuery) {
-            products = await Products.find({
-                category: {
-                    $in: [categoryQuery],
-                },
-            });
         } else {
             const allProduct = await Products.find().sort({ createdAt: -1 })
             if (!allProduct) {
