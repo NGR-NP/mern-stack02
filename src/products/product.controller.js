@@ -1,15 +1,17 @@
+
+
 const Products = require('../models/products.models')
 const transformString = require("../utils/transformString")
 const createProduct = async (req, res, next) => {
     const { title, desc, imgUrl, price, color, size, qty } = req.body
     const transformedSlug = transformString(title);
-    const timestamp = Date.now();
-    const uniqueSlug = `${transformedSlug}-${timestamp}`;
+    // const timestamp = Date.now();
+    // const uniqueSlug = `${transformedSlug}-${timestamp}`;
 
 
     const newProduct = new Products({
         title, desc, imgUrl,
-        slug: uniqueSlug,
+        slug: transformedSlug,
         price, color, size, qty
     });
     try {
