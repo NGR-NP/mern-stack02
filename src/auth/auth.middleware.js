@@ -3,7 +3,7 @@ const { JWT_SEC } = require("../config/secrets");
 const ERROR = require("../utils/Error");
 
 const verifyJwt = (req, res, next) => {
-    const authTokenInHeader = req.hearder.Authorization
+    const authTokenInHeader = req.headers.authorization 
     if (!authTokenInHeader) {
         return next(ERROR(403, "header is empty"))
     }

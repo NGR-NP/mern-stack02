@@ -34,7 +34,7 @@ const ProductSchema = new mongoose.Schema(
             type: Number,
             required: "quantity is required",
         },
-        category: [{ type: Schema.Types.ObjectId, ref: "Category" }]
+        category: [{ type: mongoose.Schema.Types.ObjectId, ref: "Category" }]
     },
     {
         timestamps: true,
